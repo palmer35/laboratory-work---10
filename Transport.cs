@@ -131,7 +131,10 @@
 
         public virtual int CompareTo(object obj)
         {
-            if (obj == null) return 1;
+            if (obj == null)
+            {
+                return 1;
+            }
             if (obj is Transport p)
             {
                 return String.Compare(this.TransportType, p.TransportType);
