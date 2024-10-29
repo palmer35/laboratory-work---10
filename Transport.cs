@@ -126,7 +126,8 @@
 
         public override string ToString()
         {
-            return $"Transport Type: {TransportType}, Year: {YearRelease}, MaxSpeed: {MaxSpeed} km/h, Passengers: {NumberPassengers}";
+            return $"TransportType: {TransportType}, Year: {YearRelease}, MaxSpeed: {MaxSpeed} km/h, Passengers: {NumberPassengers}";
+
         }
 
         public virtual int CompareTo(object obj)
