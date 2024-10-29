@@ -5,15 +5,18 @@
         private string[] carBrand = { "Lada", "Toyota", "Ford", "BMW", "Honda", "Nissan", "Chevrolet", "Audi", "Mercedes-Benz", "Kia" };
         private string[] bodyType = { "Saloon", "Hatchback ", "Estate", "Coupe", " Pickup" };
         public string BodyType { get; set; }
+        public string CarBrand { get; set; }
 
         public Car() : base("NoNameTransport", 0, 0, 0)
         {
+            CarBrand = "NoNameTransport";
             BodyType = "NoBodyType";
         }
 
-        public Car(string carTransportType, int yearRelease, int maxSpeed, int numbersPassengers, string bodyType) : base(carTransportType, yearRelease, maxSpeed, numbersPassengers)
+        public Car(string carTransportType, int yearRelease, int maxSpeed, int numbersPassengers, string carBrand, string bodyType) : base(carTransportType, yearRelease, maxSpeed, numbersPassengers)
         {
-            BodyType = bodyType;
+            CarBrand = carBrand;
+            BodyType = carBrand;
         }
 
         public override void Init()
@@ -41,7 +44,7 @@
         public override void Show()
         {
             base.Show();
-            Console.WriteLine($"BodyType = {BodyType}");
+            Console.WriteLine($"CarBrand = {BodyType}");
         }
 
         public override void RandomInit()
@@ -49,11 +52,12 @@
             base.RandomInit();
             TransportType = "Car";
             BodyType = bodyType[rnd.Next(bodyType.Length)];
+            CarBrand = carBrand[rnd.Next(CarBrand.Length)];
         }
 
         public override string ToString()
         {
-            return base.ToString() + $", Body Type: {BodyType}";
+            return base.ToString() + $", CarBrand: {CarBrand}" + $", BodyType: {BodyType}";
         }
 
         public override bool Equals(object obj)
